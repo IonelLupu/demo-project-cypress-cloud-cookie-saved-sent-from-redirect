@@ -5,7 +5,6 @@ export async function middleware(request: NextRequest) {
     let response: NextResponse | undefined
 
     let anonymousId = request.cookies.get('cookie-test')?.value
-    console.log('mataa ->', anonymousId)
     if (!anonymousId) {
         response = NextResponse.redirect(request.url)
         response.cookies.set('cookie-test', 'test value')
